@@ -1,28 +1,23 @@
 import { faShop, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 
-const Nav = () => {
+const NavBar = () => {
     return (
         <>
-            <div className="navbar navbar-dark bg-dark navbar-expand-lg">
-                <div className="container">
-                    <a className="navbar-brand">React Shop</a>
-                    <ul className="navbar-nav flex-row">
-                        <li className="nav-item me-2">
-                            <Link to={"/"} className="nav-link">
-                            <FontAwesomeIcon icon={faShop}/>
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to={"/cart"} className="nav-link"> 
-                            <FontAwesomeIcon icon={faShoppingCart}/>
-                            </Link>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <Navbar bg="dark" data-bs-theme="dark">
+                <Container>
+                    <Navbar.Brand as={Link} to="/">React Shop</Navbar.Brand>
+                    <Nav>
+                        <Nav.Link as={Link} to="/"><FontAwesomeIcon icon={faShop} /></Nav.Link>
+                        <Nav.Link as={Link} to="/cart"><FontAwesomeIcon icon={faShoppingCart} /></Nav.Link>
+                    </Nav>
+                </Container>
+            </Navbar>
         </>
     )
 }
-export default Nav;
+export default NavBar;
