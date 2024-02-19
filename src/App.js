@@ -5,7 +5,10 @@ import Shop from './pages/shop/shop';
 import Cart from './pages/cart/cart';
 import NavBar from './components/nav';
 
+ 
+
 function App() {
+  
   return (
     <div className="App">
       <Router>
