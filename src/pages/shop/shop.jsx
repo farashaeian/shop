@@ -1,26 +1,32 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Product from "./product";
 
 const Shop = () => {
-  let products = [];
+
+const [products, setProducts] = useState([])
+
   useEffect(() => {
-    // axios.get("https://jsonplaceholder.typicode.com/photos").then((res) => {
-    axios.get("https://fakestoreapi.com/products").then((res) => {
-      products = res.data;
-    });
+    fetchProducts()
   }, []);
+
+  const fetchProducts=()=>{
+    axios.get("https://fakestoreapi.com/products").then((res) => {
+      setProducts(res.data) ;
+    });
+  }
   
   return (
     <>
       <h1>Shop</h1>
       <div className="row">
-        {console.log(products)}
+        {/* {console.log(products)} */}
         {products.map((product, index) => {
-         return <Product data={product}/>;
+         return <Product key={index} data={product}/>;
         })}
       </div>
     </>
   );
 };
+
 export default Shop;

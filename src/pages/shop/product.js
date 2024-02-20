@@ -6,12 +6,12 @@ const Product = (props) => {
   return (
   <>
     <div className="col-3">
-        <Image src={image}/>
+        <Image src={image} className="w-100"/>
         {title}
         {category}
-        {description}
+        {/* {description} */}
         {price}
-        {console.log(props.data)}
+        {/* {console.log(props.data)} */}
     </div>
   </>
   );
