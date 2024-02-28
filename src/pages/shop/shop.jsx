@@ -20,7 +20,6 @@ const [products, setProducts] = useState([])
     <>
       <h1>Shop</h1>
       <div className="row">
-        {/* {console.log(products)} */}
         {products.map((product, index) => {
          return <Product key={index} data={product}/>;
         })}
