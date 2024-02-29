@@ -1,31 +1,21 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import Product from "./product";
+import {useContext} from "react";
+import {ShopContext} from "../../context/shopContext";
 
 const Shop = () => {
 
-const [products, setProducts] = useState([])
+    const {cartItems, addToCart, removeFromCart, products} = useContext(ShopContext);
 
-  useEffect(() => {
-    fetchProducts()
-  }, []);
-
-  const fetchProducts=()=>{
-    axios.get("https://fakestoreapi.com/products").then((res) => {
-      setProducts(res.data) ;
-    });
-  }
-  
-  return (
-    <>
-      <h1>Shop</h1>
-      <div className="row">
-        {products.map((product, index) => {
-         return <Product key={index} data={product}/>;
-        })}
-      </div>
-    </>
-  );
+    return (
+        <>
+            <h1>Shop</h1>
+            <div className="row">
+                {products.map((product, index) => {
+                    return <Product key={index} data={product}/>;
+                })}
+            </div>
+        </>
+    );
 };
 
 export default Shop;
